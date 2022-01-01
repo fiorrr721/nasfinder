@@ -25,9 +25,10 @@ Samba などで公開している共有フォルダのファイル検索を行�
 3. 127.0.0.1:8080 にアクセスする。
 
 ### uWSGI - For Production
+0. uWSGI のインストールをする（後述）
 1. このフォルダを適当な場所に配置する。
 2. requirements.txt の内容をインストールする。必要に応じてvirtualenvを作成する。
-3. `uwsgi.ini` を確認し、`chdir`, `virtualenv` の値を実態に即して修正する。
+3. `uwsgi.ini` を確認し、`base`, `chdir`, `virtualenv` の値を実態に即して修正する。
 4. その他必要に応じて追記などを行う
 
 ## config.ini の編集
@@ -42,7 +43,20 @@ https://chrome.google.com/webstore/detail/enable-local-file-links/nikfmfgobenbhm
 プラグインインストール・node.jsランタイムインストール・レジストリ登録が必要。
 
 
+# uWSGI のインストール
+
+Ubuntu 20.04 の場合
+
+1. `sudo apt install pip libpcre3 libpcre3-dev`
+2. `pip install uwsgi`
+
+これをやったらうまくいったというだけなので、一部コマンドは省略できる可能性あり
+
+
 # 参考文献
 Flask + uwsgi
 * [uWSGI入門 | Python学習講座](https://www.python.ambitious-engineer.com/archives/1959)
 * [【Python】Flaskの本番環境構築（Flask + uWSGI + Nginx） - 7839](https://serip39.hatenablog.com/entry/2020/07/06/070000)
+
+uWSGI インストール
+* [LinuxのUbuntuサーバー環境でNginx+uWSGI+Flaskの環境構築をする手順 | せなブログ](https://senablog.com/zakki-nginx-uwsgi-flask/)
