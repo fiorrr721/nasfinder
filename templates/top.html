@@ -1,0 +1,36 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript">
+        function go() {
+            var q = document.getElementById("q").value
+            var url = new URL("/", location.protocol + location.host);
+            url.searchParams.append('q', q);
+            console.log(url)
+            location.href = url.href
+        }
+    </script>
+</head>
+
+<div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="q" value="{{ q }}">
+    <label class="mdl-textfield__label" for="q">Text...</label>
+</div>
+<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+onclick="javascript:go()">
+    Go
+</button>
+
+<ul>
+{% for path in paths %}
+<li><a href="{{ path }}">{{ path }}</a>
+{% endfor %}
+</ul>
+
+</html>
+
+<!--
+    
+-->
